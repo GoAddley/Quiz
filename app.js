@@ -16,13 +16,17 @@ form.addEventListener('submit', e => {
             score += 20;
         } 
     });
-    
+    scrollTo({ top: 0, behavior: 'smooth' });
     //Show percentage of correct answers
-    heading.remove('d-none');
-    const span = heading.querySelector('span');
-    let percentage = document.createElement('h2');
-    percentage.innerHTML = score;
-    percentage.classList.add('percentage');
-    span.appendChild(percentage);
-    console.log(percentage);
+    heading.classList.remove('d-none');
+    //Set interval timer for score
+    let counter = 0;
+    const timer = setInterval(() => {
+        heading.querySelector('span').textContent = `${counter}%`;
+        if(counter === score){
+            clearInterval(timer);
+        } else {
+            counter++;
+        }
+    }, 40);
 })
