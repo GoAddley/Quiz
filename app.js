@@ -31,7 +31,7 @@ form.addEventListener('submit', e => {
         } else {
             counter++;
         }
-    }, 25);
+    }, 15);
 
     wrongColor.forEach((ans) =>{
         ans.classList.remove('text-white-50');
@@ -42,5 +42,15 @@ form.addEventListener('submit', e => {
         ans.classList.add('text-primary');
     });
 
-    const restart = document.createElement('input');
+    
+});
+
+const restart = document.createElement('input');
+restart.setAttribute('type', 'submit');
+restart.setAttribute('value', 'Restart');
+restart.classList.add('restart', 'btn', 'btn-dark', 'btn-lg');
+heading.appendChild(restart);
+
+restart.addEventListener('click', () =>{
+    window.location.reload();
 });
