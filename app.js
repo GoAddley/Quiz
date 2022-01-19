@@ -1,8 +1,11 @@
 //Collect answers in an array
-const correctAnswers = ['B', 'C', 'B', 'C', 'A'];
+const correctAnswers = ['Hashirama Senju', 'Kurama', 'Obito', '6', 'Sharingan'];
 //Grab form to attach event listener to it
 const form = document.querySelector('.quiz-form');
 const heading = document.querySelector('.result');
+const wrongAnswers = ["Naruto Uzumaki", "Madara Uchiha", "Shukaku", "Son Goku", "Madara", "Sasuke", "1", "7", "Byakugan", "Seals"];
+const wrongColor = document.querySelectorAll('.wrong');
+const rightColor = document.querySelectorAll('.right');
 
 form.addEventListener('submit', e => {
     e. preventDefault();
@@ -28,5 +31,16 @@ form.addEventListener('submit', e => {
         } else {
             counter++;
         }
-    }, 40);
-})
+    }, 25);
+
+    wrongColor.forEach((ans) =>{
+        ans.classList.remove('text-white-50');
+        ans.classList.add('text-danger');
+    });
+    rightColor.forEach(ans =>{
+        ans.classList.remove('text-white-50');
+        ans.classList.add('text-primary');
+    });
+
+    const restart = document.createElement('input');
+});
